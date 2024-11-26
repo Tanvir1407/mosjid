@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home/Home';
+import Main from './admin/main';
 const App = () => {
   return (
     <Router>
@@ -8,6 +9,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         
         {/* Route for the Admin page */}
+        <Route path="/admin" element={<Main />} />
       </Routes>
     </Router>
   );
