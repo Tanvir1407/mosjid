@@ -5,11 +5,13 @@ import PrayTime from "./PrayTime";
 
 export default function Home() {
   return (
-    <div className="max-w-[1200px] mx-auto">
+  <>
         <Header/>
+    <div className="max-w-[1200px] mx-auto">
         <Features/>
         <PrayTime/>
-        <Footer/>
     </div>
+        <Footer/>
+  </>
   )
 }

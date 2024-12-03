@@ -26,7 +26,7 @@ export default function Features() {
               </p>
               <div className="mt-12">
                 <span
-                  className="bg-btn-color hover:bg-opacity-90 text-white  rounded transition py-3 px-8 font-normal mb-6 sm:mb-0 text-base"
+                  className="bg-orange-500 hover:bg-opacity-90 text-white  rounded transition py-3 px-8 font-normal mb-6 sm:mb-0 text-base"
                 >
                   Donate Now
                 </span>

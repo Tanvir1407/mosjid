@@ -20,7 +20,7 @@ const NavMenu = ({ routes }) => (
 const AuthNavMenu = () => (
   <ul className="mb-2 lg:mb-0">
     <li>
-      <button className="bg-btn-color hover:bg-opacity-90 text-white  rounded transition py-3 px-8 font-normal mb-6 sm:mb-0 text-base">
+      <button className="bg-orange-500 hover:bg-opacity-90 text-white  rounded transition py-3 px-8 font-normal mb-6 sm:mb-0 text-base">
         Donate Now
       </button>
     </li>
@@ -35,8 +35,9 @@ export default function Header() {
     { name: "Contact", href: "#", isActive: false },
   ];
   return (
-    <div>
-      <div className="ezy__nav4 py-6 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white relative">
+    <div className="bg-white">
+      <div className="max-w-[1200px] mx-auto  py-5 text-zinc-900">
+      <div className="  relative">
         <nav>
           <div className="container px-4">
             <div className="flex items-center justify-between">
@@ -48,9 +49,9 @@ export default function Header() {
                 type="button"
                 id="hamburger"
               >
-                <div className="h-0.5 w-7 bg-black dark:bg-white -translate-y-2"></div>
-                <div className="h-0.5 w-7 bg-black dark:bg-white"></div>
-                <div className="h-0.5 w-7 bg-black dark:bg-white translate-y-2"></div>
+                <div className="h-0.5 w-7 -translate-y-2"></div>
+                <div className="h-0.5 w-7"></div>
+                <div className="h-0.5 w-7 translate-y-2"></div>
               </button>
               <div
                 className="flex flex-col lg:flex-row justify-center lg:justify-between items-center text-3xl gap-6 lg:text-base lg:gap-2 absolute h-screen w-screen top-0 left-full lg:left-0 lg:relative lg:h-auto lg:w-auto bg-white dark:bg-[#0b1727] lg:bg-transparent grow"
@@ -64,6 +65,7 @@ export default function Header() {
           </div>
         </nav>
       </div>
+    </div>
     </div>
   );
 }

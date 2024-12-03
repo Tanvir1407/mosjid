@@ -4,6 +4,7 @@ import logo from "../assets/Mosque-dark.png";
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
+      <div className="max-w-[1200px] mx-auto">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           {/* Logo and About Section */}
@@ -70,6 +71,7 @@ const Footer = () => {
         <div className="mt-6 text-center border-t border-gray-700 pt-4">
           <p className="text-sm">&copy; 2024 YourBrand. All rights reserved.</p>
         </div>
+      </div>
       </div>
     </footer>
   );
