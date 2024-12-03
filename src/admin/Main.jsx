@@ -14,8 +14,8 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
-import DefaultLayout from './layout/DefaultLayout';
 import Loader from './common/Loader';
+import DefaultLayout from './layout/DefaultLayout';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -38,7 +38,7 @@ function Main() {
           index
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="eCommerce Dashboard " />
               <ECommerce />
             </>
           }
@@ -47,7 +47,7 @@ function Main() {
           path="/calendar"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Calendar "  />
               <Calendar />
             </>
           }
@@ -56,7 +56,7 @@ function Main() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Profile "  />
               <Profile />
             </>
           }
@@ -65,7 +65,7 @@ function Main() {
           path="/forms/form-elements"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Elements "  />
               <FormElements />
             </>
           }
@@ -74,7 +74,7 @@ function Main() {
           path="/forms/form-layout"
           element={
             <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Layout "  />
               <FormLayout />
             </>
           }
@@ -83,7 +83,7 @@ function Main() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Tables "  />
               <Tables />
             </>
           }
@@ -92,7 +92,7 @@ function Main() {
           path="/settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Settings " />
               <Settings />
             </>
           }
@@ -101,7 +101,7 @@ function Main() {
           path="/chart"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Basic Chart "  />
               <Chart />
             </>
           }
@@ -110,7 +110,7 @@ function Main() {
           path="/ui/alerts"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Alerts " />
               <Alerts />
             </>
           }
@@ -119,7 +119,7 @@ function Main() {
           path="/ui/buttons"
           element={
             <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Buttons " />
               <Buttons />
             </>
           }
@@ -128,7 +128,7 @@ function Main() {
           path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Signin " />
               <SignIn />
             </>
           }
@@ -137,7 +137,7 @@ function Main() {
           path="/signup"
           element={
             <>
-              <PageTitle title="Signup | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Signup "  />
               <SignUp />
             </>
           }
