@@ -1,24 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCloudSun, FaCloudMoon, FaMosque, FaPrayingHands } from "react-icons/fa";
+import apiClient from "../api/api";
+import Watch from "./Watch";
 
 const PayerTime = () => {
-  const [time, setTime] = useState(new Date());
 
+  //====================API=============================
+  const [data, setData] = useState([]);
+
+  console.log(data);
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await apiClient.get('/namaz-time?query=all');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  const prayerSchedule = [
-    { name: "Fajr", azan: "3:30 AM", salat: "4:30 AM", icon: <FaMoon style={{ color: "#4B5563" }} /> },
-    { name: "Dhuhr", azan: "1:00 PM", salat: "1:15 PM", icon: <FaSun style={{ color: "#FACC15" }} /> },
-    { name: "Asr", azan: "5:10 PM", salat: "5:15 PM", icon: <FaCloudSun style={{ color: "#F59E0B" }} /> },
-    { name: "Maghrib", azan: "7:00 PM", salat: "7:10 PM", icon: <FaCloudMoon style={{ color: "#FB923C" }} /> },
-    { name: "Isha", azan: "8:25 PM", salat: "8:45 PM", icon: <FaPrayingHands style={{ color: "#1D4ED8" }} /> },
-    { name: "Jumma", azan: "12:30 PM", salat: "12:45 PM", icon: <FaMosque style={{ color: "#10B981" }} /> },
-  ];
+    fetchData();
+  }, []);
+  //======================API===========================
+ 
+
+  const getPrayerIcon = (name) => {
+    switch (name.toLowerCase()) {
+      case "fajr":
+        return <FaMoon style={{ color: "#4B5563" }} />;
+      case "dhuhr":
+        return <FaSun style={{ color: "#FACC15" }} />;
+      case "asr":
+        return <FaCloudSun style={{ color: "#F59E0B" }} />;
+      case "maghrib":
+        return <FaCloudMoon style={{ color: "#FB923C" }} />;
+      case "isha":
+        return <FaPrayingHands style={{ color: "#1D4ED8" }} />;
+      case "jummah":
+        return <FaMosque style={{ color: "#10B981" }} />;
+      default:
+        return <FaPrayingHands style={{ color: "#4B5563" }} />;
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-14">
@@ -26,42 +50,7 @@ const PayerTime = () => {
         {/* Left Section */}
         <div className="bg-gray-50 p-8 flex flex-col justify-center">
           {/* Clock */}
-          <div className="text-center mb-6">
-            <div className="relative mx-auto w-[145px] h-[145px] bg-white border-4 border-btn-color rounded-full shadow-md">
-              <div
-                className="absolute w-[4px] h-[50px] bg-[#121413] rounded origin-bottom"
-                style={{
-                  transform: `rotate(${(time.getHours() % 12) * 30 + time.getMinutes() * 0.5}deg)`,
-                  top: "50%",
-                  left: "50%",
-                  transformOrigin: "bottom center",
-                  translate: "-50% -100%",
-                }}
-              ></div>
-              <div
-                className="absolute w-[2px] h-[65px] bg-[#646464] rounded origin-bottom"
-                style={{
-                  transform: `rotate(${time.getMinutes() * 6}deg)`,
-                  top: "50%",
-                  left: "50%",
-                  transformOrigin: "bottom center",
-                  translate: "-50% -100%",
-                }}
-              ></div>
-              <div
-                className="absolute w-[1px] h-[70px] bg-red-600 rounded origin-bottom"
-                style={{
-                  transform: `rotate(${time.getSeconds() * 6}deg)`,
-                  top: "50%",
-                  left: "50%",
-                  transformOrigin: "bottom center",
-                  translate: "-50% -100%",
-                }}
-              ></div>
-              <div className="absolute w-4 h-4 bg-black rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-            </div>
-            <p className="mt-2 text-gray-700 text-lg font-semibold">{time.toLocaleTimeString()}</p>
-          </div>
+          <Watch />
 
           {/* Welcome Section */}
           <div>
@@ -82,13 +71,13 @@ const PayerTime = () => {
             <div className="text-gray-700 font-semibold">Name of Salat</div>
             <div className="text-gray-700 font-semibold">Azan Time</div>
             <div className="text-gray-700 font-semibold">Prayer Time</div>
-            {prayerSchedule.map((prayer, index) => (
+            {data?.map((prayer, index) => (
               <React.Fragment key={index}>
                 <div className="p-2 bg-gray-50 rounded flex items-center space-x-2">
-                  {prayer.icon} <span>{prayer.name}</span>
+                {getPrayerIcon(prayer?.name)} <span>{prayer?.name}</span>
                 </div>
-                <div className="p-2 bg-gray-50 rounded">{prayer.azan}</div>
-                <div className="p-2 bg-gray-50 rounded">{prayer.salat}</div>
+                <div className="p-2 bg-gray-50 rounded">{prayer?.azan}</div>
+                <div className="p-2 bg-gray-50 rounded">{prayer?.time}</div>
               </React.Fragment>
             ))}
           </div>

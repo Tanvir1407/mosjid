@@ -10,7 +10,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         
         {/* Route for the Admin page */}
-        <Route path="/admin" element={<PrivateRoute><Main /></PrivateRoute>} />
+        <Route path="/admin/*" element={<PrivateRoute><Main /></PrivateRoute>} />
       </Routes>
     </Router>
   );
