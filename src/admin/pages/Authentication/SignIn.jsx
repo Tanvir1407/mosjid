@@ -26,7 +26,7 @@ const SignIn = () => {
         localStorage.setItem('token', response.data.token);
 
         // Navigate to the dashboard or another protected page
-        navigate('/');
+        navigate('/admin');
       }
     } catch (error) {
       // Handle errors
