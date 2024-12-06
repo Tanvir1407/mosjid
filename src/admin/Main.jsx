@@ -16,6 +16,7 @@ import Loader from './common/Loader';
 import DefaultLayout from './layout/DefaultLayout';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
+import PrivateRoute from './pages/Authentication/PrivateRoute';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -34,96 +35,7 @@ function Main() {
   ) : (
     <DefaultLayout>
       <Routes>
-        <Route
-          index
-          element={
-            <>
-              <PageTitle title="eCommerce Dashboard " />
-              <ECommerce />
-            </>
-          }
-        />
-        <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar "  />
-              <Calendar />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile "  />
-              <Profile />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements "  />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout "  />
-              <FormLayout />
-            </>
-          }
-        />
-        <Route
-          path="/tables"
-          element={
-            <>
-              <PageTitle title="Tables "  />
-              <Tables />
-            </>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <>
-              <PageTitle title="Settings " />
-              <Settings />
-            </>
-          }
-        />
-        <Route
-          path="/chart"
-          element={
-            <>
-              <PageTitle title="Basic Chart "  />
-              <Chart />
-            </>
-          }
-        />
-        <Route
-          path="/ui/alerts"
-          element={
-            <>
-              <PageTitle title="Alerts " />
-              <Alerts />
-            </>
-          }
-        />
-        <Route
-          path="/ui/buttons"
-          element={
-            <>
-              <PageTitle title="Buttons " />
-              <Buttons />
-            </>
-          }
-        />
+        {/* Public routes */}
         <Route
           path="/auth/signin"
           element={
@@ -137,9 +49,121 @@ function Main() {
           path="/auth/signup"
           element={
             <>
-              <PageTitle title="Signup "  />
+              <PageTitle title="Signup " />
               <SignUp />
             </>
+          }
+        />
+
+        {/* Private routes */}
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="eCommerce Dashboard " />
+                <ECommerce />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/calendar"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Calendar " />
+                <Calendar />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Profile " />
+                <Profile />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/forms/form-elements"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Form Elements " />
+                <FormElements />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/forms/form-layout"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Form Layout " />
+                <FormLayout />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tables"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Tables " />
+                <Tables />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Settings " />
+                <Settings />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/chart"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Basic Chart " />
+                <Chart />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/ui/alerts"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Alerts " />
+                <Alerts />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/ui/buttons"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Buttons " />
+                <Buttons />
+              </>
+            </PrivateRoute>
           }
         />
       </Routes>
