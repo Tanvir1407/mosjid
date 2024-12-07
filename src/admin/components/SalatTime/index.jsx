@@ -22,6 +22,20 @@ export default function SalatTime() {
   }, []);
   //======================API===========================
 
+  //====================Delete Salat Time=============================
+    const handleDeleteSalatTime = async (id) => {
+        console.log(id);
+    try {
+      await apiClient.patch(`/namaz-time/${id}`,{
+        status: "false"
+      });
+      const response = await apiClient.get("/namaz-time?query=all");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+    };
+    //======================Delete Salat Time===========================
   return (
     <div>
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
@@ -109,7 +123,7 @@ export default function SalatTime() {
                           />
                         </svg>
                       </button>
-                      <button className="hover:text-primary">
+                      <button onClick={() =>handleDeleteSalatTime(salat.id)}  className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"

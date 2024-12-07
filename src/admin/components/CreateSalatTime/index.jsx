@@ -20,7 +20,7 @@ export default function SalatTime() {
       const response = await apiClient.post("/namaz-time", {
         name,
         time,
-        azan_time: azanTime,
+        azanTime,
       });
 
       setSuccessMessage("Salat time added successfully!");
@@ -39,7 +39,7 @@ export default function SalatTime() {
       {/* Header */}
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
         <div className="max-w-full flex justify-between items-center">
-          <h1 className="text-gray-700 dark:text-white font-semibold">Salat Time</h1>
+          <h1 className="text-gray-700 dark:text-white font-semibold">Add New Salat Time</h1>
           <Link to="/admin/salat-time"
             className="inline-flex items-center justify-center gap-2.5 rounded-md bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
           >
@@ -53,7 +53,6 @@ export default function SalatTime() {
 
       {/* Form */}
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
-        <h2 className="text-gray-700 dark:text-white font-semibold mb-4">Add New Salat Time</h2>
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         {successMessage && <p className="text-green-500">{successMessage}</p>}
         <form onSubmit={handleSubmit} className="w-[500px] mx-auto">

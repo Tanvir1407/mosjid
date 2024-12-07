@@ -20,6 +20,7 @@ import PrivateRoute from './pages/Authentication/PrivateRoute';
 import SalatTime from './components/SalatTime';
 import CreateSalatTime from './components/CreateSalatTime';
 import InvoiceCategory from './components/InvoiceCategory';
+import CreateInvoiceCategory from './components/CreateInvoiceCategory/Index';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -99,6 +100,17 @@ function Main() {
               <>
                 <PageTitle title="Invoice Category " />
                 <InvoiceCategory />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create-invoice-category"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Create Invoice Category " />
+                <CreateInvoiceCategory />
               </>
             </PrivateRoute>
           }
