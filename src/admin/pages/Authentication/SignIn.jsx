@@ -24,6 +24,7 @@ const SignIn = () => {
         // Save token to localStorage
         localStorage.setItem('isLogged', 'true');
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', JSON.stringify(response.data.username));
 
         // Navigate to the dashboard or another protected page
         navigate('/admin');

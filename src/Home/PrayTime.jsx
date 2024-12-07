@@ -8,7 +8,6 @@ const PayerTime = () => {
   //====================API=============================
   const [data, setData] = useState([]);
 
-  console.log(data);
   useEffect(() => {
     const fetchData = async () => {
       try {

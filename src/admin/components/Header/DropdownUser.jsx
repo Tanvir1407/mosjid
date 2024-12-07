@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
-import UserOne from '../../images/user/user-01.png';
+import React from 'react';
+import { FaMosque } from 'react-icons/fa';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,6 +11,7 @@ const DropdownUser = () => {
     localStorage.clear();
     window.location.href = '/admin/auth/signin';
   }
+  const user = JSON.parse(localStorage.getItem('username'));
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
       <Link
@@ -18,14 +20,14 @@ const DropdownUser = () => {
         to="#"
       >
         <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+          <span className="uppercase block text-sm font-medium text-black dark:text-white">
+            {user ? user : 'Admin'}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">Admin</span>
         </span>
 
-        <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+        <span className="flex items-center justify-center h-12 w-12 rounded-full bg-slate-50 dark:bg-slate-900">
+          <FaMosque size={30}/>
         </span>
 
         <svg

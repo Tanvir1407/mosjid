@@ -17,6 +17,9 @@ import DefaultLayout from './layout/DefaultLayout';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import PrivateRoute from './pages/Authentication/PrivateRoute';
+import SalatTime from './components/SalatTime';
+import CreateSalatTime from './components/CreateSalatTime';
+import InvoiceCategory from './components/InvoiceCategory';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -63,6 +66,39 @@ function Main() {
               <>
                 <PageTitle title="eCommerce Dashboard " />
                 <ECommerce />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/salat-time"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Salat Time " />
+                <SalatTime />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create-salat-time"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Create Salat Time " />
+                <CreateSalatTime />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/invoice-category"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Invoice Category " />
+                <InvoiceCategory />
               </>
             </PrivateRoute>
           }

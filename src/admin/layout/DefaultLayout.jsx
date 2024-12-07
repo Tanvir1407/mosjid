@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import Header from '../components/Header/index';
 import Sidebar from '../components/Sidebar/index';
-
+import Header from '../components/Header/index';
 // eslint-disable-next-line react/prop-types
 const DefaultLayout = ({ children }) => {
 
