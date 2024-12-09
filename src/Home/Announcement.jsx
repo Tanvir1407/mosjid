@@ -35,7 +35,7 @@ const Announcement = () => {
   }
 
   return (
-    <div className="bg-gradient-to-r from-gray-200 to-gray-200 py-12">
+    <div className="bg-gradient-to-r from-gray-100 to-gray-200 py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-3xl font-bold text-gray-800 mb-8">
           Latest Announcements
