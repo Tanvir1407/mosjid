@@ -8,6 +8,18 @@ interface CardDataStatsProps {
   levelDown?: boolean;
   children: ReactNode;
 }
+// utils/formatNumber.js
+ const formatNumber = (num) => {
+  if (num >= 1e9) {
+    return (num / 1e9).toFixed(1) + 'B'; // Convert to billions
+  } else if (num >= 1e6) {
+    return (num / 1e6).toFixed(1) + 'M'; // Convert to millions
+  } else if (num >= 1e3) {
+    return (num / 1e3).toFixed(1) + 'K'; // Convert to thousands
+  } else {
+    return num.toString(); // Display as is for smaller numbers
+  }
+};
 
 const CardDataStats: React.FC<CardDataStatsProps> = ({
   title,
@@ -26,7 +38,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            {total}
+            {formatNumber(total || 0)}
           </h4>
           <span className="text-sm font-medium">{title}</span>
         </div>
