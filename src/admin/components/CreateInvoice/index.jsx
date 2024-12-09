@@ -33,7 +33,10 @@ export default function CreateInvoice() {
     flatpickr(".form-datepicker", {
       dateFormat: "Y-m-d", // Match the backend date format
       onChange: (selectedDates) => {
-        setDate(selectedDates[0]?.toISOString().split("T")[0]); // Set the selected date in ISO format
+        if (selectedDates.length > 0) {
+          const localDate = selectedDates[0];
+          setDate(localDate.toLocaleDateString("en-CA")); // Format as 'YYYY-MM-DD'
+        }
       },
     });
   }, []);
@@ -115,7 +118,6 @@ export default function CreateInvoice() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-              required
             />
           </div>
 

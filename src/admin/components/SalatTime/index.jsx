@@ -26,9 +26,7 @@ export default function SalatTime() {
     const handleDeleteSalatTime = async (id) => {
         console.log(id);
     try {
-      await apiClient.patch(`/namaz-time/${id}`,{
-        status: "false"
-      });
+      await apiClient.delete(`/namaz-time/${id}`);
       const response = await apiClient.get("/namaz-time?query=all");
       setData(response.data);
     } catch (error) {

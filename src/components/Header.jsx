@@ -28,18 +28,13 @@ const AuthNavMenu = () => (
 );
 
 export default function Header() {
-  const routes = [
-    { name: "Home", href: "#", isActive: true },
-    { name: "About", href: "#", isActive: false },
-    { name: "Services", href: "#", isActive: false },
-    { name: "Contact", href: "#", isActive: false },
-  ];
+  
   return (
     <div className="bg-white">
       <div className="max-w-[1200px] mx-auto  py-5 text-zinc-900">
       <div className="  relative">
         <nav>
-          <div className="container px-4">
+          <div className="container px-4 ">
             <div className="flex items-center justify-between">
               <a className="font-black text-3xl min-w-[33%]" href="/">
                 <img src={logo} />
@@ -54,10 +49,9 @@ export default function Header() {
                 <div className="h-0.5 w-7 translate-y-2"></div>
               </button>
               <div
-                className="flex flex-col lg:flex-row justify-center lg:justify-between items-center text-3xl gap-6 lg:text-base lg:gap-2 absolute h-screen w-screen top-0 left-full lg:left-0 lg:relative lg:h-auto lg:w-auto bg-white dark:bg-[#0b1727] lg:bg-transparent grow"
+                className="flex flex-col lg:flex-row justify-center lg:justify-end items-center text-3xl gap-6 lg:text-base lg:gap-2 absolute h-screen w-screen top-0 left-full lg:left-0 lg:relative lg:h-auto lg:w-auto bg-white dark:bg-[#0b1727] lg:bg-transparent grow"
                 id="navbar"
               >
-                <NavMenu routes={routes} />
 
                 <AuthNavMenu />
               </div>

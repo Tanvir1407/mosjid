@@ -60,6 +60,9 @@ export default function Invoice() {
                   Invoice By
                 </th>
                 <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
+                  Date
+                </th>
+                <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
                   Status
                 </th>
                 <th className="py-4 px-4 font-medium text-black dark:text-white">
@@ -87,6 +90,9 @@ export default function Invoice() {
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{invoice.user.username}</p>
+                  </td>
+                  <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">{invoice.date}</p>
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p
