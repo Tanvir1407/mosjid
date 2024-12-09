@@ -75,7 +75,7 @@ const PayerTime = () => {
                 <div className="p-2 bg-gray-50 rounded flex items-center space-x-2">
                 {getPrayerIcon(prayer?.name)} <span>{prayer?.name}</span>
                 </div>
-                <div className="p-2 bg-gray-50 rounded">{prayer?.azan}</div>
+                <div className="p-2 bg-gray-50 rounded">{prayer?.azanTime}</div>
                 <div className="p-2 bg-gray-50 rounded">{prayer?.time}</div>
               </React.Fragment>
             ))}

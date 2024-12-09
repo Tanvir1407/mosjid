@@ -21,6 +21,10 @@ import SalatTime from './components/SalatTime';
 import CreateSalatTime from './components/CreateSalatTime';
 import InvoiceCategory from './components/InvoiceCategory';
 import CreateInvoiceCategory from './components/CreateInvoiceCategory/Index';
+import Invoice from './components/Invoice';
+import CreateInvoice from './components/CreateInvoice';
+import Announcement from './components/Announcement';
+import CreateAnnouncement from './components/CreateAnnouncement';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -65,8 +69,30 @@ function Main() {
           element={
             <PrivateRoute>
               <>
-                <PageTitle title="eCommerce Dashboard " />
+                <PageTitle title="Masjid Dashboard " />
                 <ECommerce />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/announcement"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Announcement" />
+                <Announcement />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create-announcement"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Create Announcement" />
+                <CreateAnnouncement />
               </>
             </PrivateRoute>
           }
@@ -89,6 +115,28 @@ function Main() {
               <>
                 <PageTitle title="Create Salat Time " />
                 <CreateSalatTime />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/all-invoice"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Invoice " />
+                <Invoice />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create-invoice"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Create Invoice " />
+                <CreateInvoice />
               </>
             </PrivateRoute>
           }
