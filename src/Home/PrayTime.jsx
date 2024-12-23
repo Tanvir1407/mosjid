@@ -1,27 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCloudSun, FaCloudMoon, FaMosque, FaPrayingHands } from "react-icons/fa";
-import apiClient from "../api/api";
 import Watch from "./Watch";
+import React from "react";
 
-const PayerTime = () => {
-
-  //====================API=============================
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiClient.get('/namaz-time?query=all');
-        setData(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  //======================API===========================
- 
+const PayerTime = ({data}) => {
 
   const getPrayerIcon = (name) => {
     switch (name.toLowerCase()) {
