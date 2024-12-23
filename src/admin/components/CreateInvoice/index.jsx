@@ -79,7 +79,7 @@ export default function CreateInvoice() {
         <div className="max-w-full flex justify-between items-center">
           <h1 className="text-gray-700 dark:text-white font-semibold">Create New Invoice</h1>
           <Link
-            to="/admin/all-invoice"
+            to="/admin/income-invoice"
             className="inline-flex items-center justify-center gap-2.5 rounded-md bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
           >
             <span>

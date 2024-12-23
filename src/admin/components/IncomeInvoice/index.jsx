@@ -26,7 +26,7 @@ export default function Invoice() {
     <div>
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
         <div className="max-w-full overflow-x-auto flex justify-between items-center">
-            <h1 className="text-gray-700 dark:text-white font-semibold">Invoices</h1>
+            <h1 className="text-gray-700 dark:text-white font-semibold">Donation Invoices</h1>
             <Link
               to="/admin/create-invoice"
               className="inline-flex items-center justify-center gap-2.5 rounded-md bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
@@ -39,7 +39,7 @@ export default function Invoice() {
         </div>
       </div>
 
-      <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+      <div className="rounded-sm border border-stroke bg-white px-5 pt-6 zpb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
         <div className="max-w-full overflow-x-auto">
           <table className="w-full table-auto">
             <thead>

@@ -154,13 +154,24 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               </li>
               <li>
                 <NavLink
-                  to="/admin/all-invoice"
+                  to="/admin/donation-invoice"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('all-invoice') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('donation-invoice') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <TbFileInvoice  size={22}/>
-                  Invoice
+                  Donation Invoice
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/admin/expense-invoice"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('expense-invoice') && 'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  <TbFileInvoice  size={22}/>
+                  Expense Invoice
                 </NavLink>
               </li>
               <li>

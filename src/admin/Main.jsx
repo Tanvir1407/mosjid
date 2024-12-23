@@ -20,7 +20,8 @@ import SalatTime from './components/SalatTime';
 import CreateSalatTime from './components/CreateSalatTime';
 import InvoiceCategory from './components/InvoiceCategory';
 import CreateInvoiceCategory from './components/CreateInvoiceCategory/Index';
-import Invoice from './components/Invoice';
+import IncomeInvoice from './components/IncomeInvoice';
+import ExpenseInvoice from './components/ExpenseInvoice';
 import CreateInvoice from './components/CreateInvoice';
 import Announcement from './components/Announcement';
 import CreateAnnouncement from './components/CreateAnnouncement';
@@ -120,12 +121,23 @@ function Main() {
           }
         />
         <Route
-          path="/all-invoice"
+          path="/donation-invoice"
           element={
             <PrivateRoute>
               <>
-                <PageTitle title="Invoice " />
-                <Invoice />
+                <PageTitle title="Donation Invoice " />
+                <IncomeInvoice />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/expense-invoice"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Expense Invoice " />
+                <ExpenseInvoice />
               </>
             </PrivateRoute>
           }
