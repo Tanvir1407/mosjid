@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 import apiClient from "../../../api/api";
 import { Link } from "react-router-dom";
 import { FaPrayingHands } from "react-icons/fa";
+import Loader from "../../common/Loader";
 
 export default function Announcement() {
   //====================API=============================
   const [data, setData] = useState([]);
-
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(true);
         const response = await apiClient.get("/announcement?query=all");
         setData(response.data);
+        setLoader(false);
       } catch (error) {
+        setLoader(false);
         console.error("Error fetching data:", error);
       }
     };
@@ -23,6 +27,7 @@ export default function Announcement() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {loader ? (<Loader/> ) : (<>
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <h1 className="text-gray-700 dark:text-white font-semibold text-center sm:text-left">
@@ -143,7 +148,7 @@ export default function Announcement() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div></>)}
     </div>
   );
 }

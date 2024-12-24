@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import apiClient from "../../../api/api";
 import { Link } from "react-router-dom";
 import { FaPrayingHands } from "react-icons/fa";
+import Loader from "../../common/Loader";
 
 export default function SalatTime() {
 
   //====================API=============================
   const [data, setData] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(true);
         const response = await apiClient.get("/namaz-time?query=all");
         setData(response.data);
+        setLoader(false)
       } catch (error) {
+        setLoader(false)
         console.error("Error fetching data:", error);
       }
     };
@@ -35,7 +40,10 @@ export default function SalatTime() {
     };
     //======================Delete Salat Time===========================
   return (
+
     <div>
+      {loader ? <Loader/> :
+      <>
       <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
         <div className="max-w-full overflow-x-auto flex justify-between items-center">
             <h1 className="text-gray-700 dark:text-white font-semibold">Salat Time</h1>
@@ -156,7 +164,8 @@ export default function SalatTime() {
           </table>
         </div>
       </div>
-
+      </>
+    }
       
     </div>
   );
