@@ -11,8 +11,8 @@ export default function Invoice() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get("/invoice?query=all");
-        setData(response.data);
+        const response = await apiClient.get("/invoice?page=1&count=100&type=donation");
+        setData(response?.data?.getAllInvoice);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -28,7 +28,7 @@ export default function Invoice() {
         <div className="max-w-full overflow-x-auto flex justify-between items-center">
             <h1 className="text-gray-700 dark:text-white font-semibold">Donation Invoices</h1>
             <Link
-              to="/admin/create-invoice"
+              to="/admin/create-invoice?type=donation"
               className="inline-flex items-center justify-center gap-2.5 rounded-md bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
             >
               <span>
@@ -52,6 +52,9 @@ export default function Invoice() {
                 </th>
                 <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
                   Donner Name
+                </th>
+                <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
+                  Invoice Name
                 </th>
                 <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
                   Invoice type
@@ -84,6 +87,9 @@ export default function Invoice() {
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{invoice.donnerName}</p>
+                  </td>
+                  <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">{invoice.category.name}</p>
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{invoice.category.type}</p>

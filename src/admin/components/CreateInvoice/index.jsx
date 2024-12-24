@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import apiClient from "../../../api/api";
 import { TbFileInvoice } from "react-icons/tb";
@@ -13,13 +13,20 @@ export default function CreateInvoice() {
   const [successMessage, setSuccessMessage] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [data, setData] = useState([]);
+ 
+    // Extract the query parameters from the URL
+    const { search } = useLocation();
 
+    // Parse the query string
+    const queryParams = new URLSearchParams(search);
+    const type = queryParams.get("type"); // Gets the value of the 'type' parameter
+  
   // Fetch invoice categories
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get("/invoice-category?query=all");
-        setData(response.data);
+        const response = await apiClient.get(`/invoice-category?page=1&count=100&type=${type}`);
+        setData(response?.data?.getAllInvoiceCategory);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -79,7 +86,7 @@ export default function CreateInvoice() {
         <div className="max-w-full flex justify-between items-center">
           <h1 className="text-gray-700 dark:text-white font-semibold">Create New Invoice</h1>
           <Link
-            to="/admin/income-invoice"
+            to={`/admin/${type}-invoice`}
             className="inline-flex items-center justify-center gap-2.5 rounded-md bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
           >
             <span>
