@@ -110,7 +110,7 @@ export default function SalatTime() {
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <div className="flex items-center space-x-3.5">
-                      <button className="hover:text-primary">
+                      {/* <button className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"
@@ -128,7 +128,7 @@ export default function SalatTime() {
                             fill=""
                           />
                         </svg>
-                      </button>
+                      </button> */}
                       <button onClick={() =>handleDeleteSalatTime(salat.id)}  className="hover:text-primary">
                         <svg
                           className="fill-current"

@@ -55,9 +55,7 @@ export default function Invoice() {
                 <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
                   Amount
                 </th>
-                <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
-                  Donner Name
-                </th>
+             
                 <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
                   Invoice Name
                 </th>
@@ -93,9 +91,7 @@ export default function Invoice() {
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{invoice.donnerName}</p>
                   </td>
-                  <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{invoice.category.name}</p>
-                  </td>
+                
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{invoice.category.type}</p>
                   </td>
@@ -120,7 +116,7 @@ export default function Invoice() {
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <div className="flex items-center space-x-3.5">
-                      <button className="hover:text-primary">
+                      {/* <button className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"
@@ -138,7 +134,7 @@ export default function Invoice() {
                             fill=""
                           />
                         </svg>
-                      </button>
+                      </button> */}
                       <button className="hover:text-primary">
                         <svg
                           className="fill-current"

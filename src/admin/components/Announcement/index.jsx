@@ -24,7 +24,21 @@ export default function Announcement() {
     fetchData();
   }, []);
   //======================API===========================
+  const deleteAnnouncementHandler = async (id) => {
+    try {
+      setLoader(true);
 
+      await apiClient.delete(`/announcement/${id}`);
+      const response = await apiClient.get("/announcement?query=all");
+      setData(response.data);
+      setLoader(false);
+
+    } catch (error) {
+      setLoader(false);
+
+      console.error("Error deleting data:", error);
+    }
+  }
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       {loader ? (<Loader/> ) : (<>
@@ -94,7 +108,7 @@ export default function Announcement() {
                   </td>
                   <td className="border-b border-[#eee] py-4 px-2 sm:px-4">
                     <div className="flex justify-center sm:justify-start items-center space-x-3">
-                      <button className="hover:text-primary">
+                      {/* <button className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"
@@ -113,8 +127,8 @@ export default function Announcement() {
                             fill=""
                           />
                         </svg>
-                      </button>
-                      <button className="hover:text-primary">
+                      </button> */}
+                      <button onClick={()=>deleteAnnouncementHandler(invoice.id)} className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"
