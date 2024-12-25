@@ -25,7 +25,7 @@ const PayerTime = ({data}) => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 p-14">
+    <div className="min-h-screen bg-gray-100 p-2 sm:p-5 md:p-10 lg:p-14">
       <div className="max-w-7xl mx-auto bg-white shadow rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-2">
         {/* Left Section */}
         <div className="bg-gray-50 p-8 flex flex-col justify-center">
