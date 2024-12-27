@@ -26,6 +26,7 @@ import CreateInvoice from './components/CreateInvoice';
 import Announcement from './components/Announcement';
 import CreateAnnouncement from './components/CreateAnnouncement';
 import Settings from './pages/Settings';
+import UpdateSalatTime from './components/UpdateSalatTime';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -116,6 +117,17 @@ function Main() {
               <>
                 <PageTitle title="Create Salat Time " />
                 <CreateSalatTime />
+              </>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/update-salat-time"
+          element={
+            <PrivateRoute>
+              <>
+                <PageTitle title="Update Salat Time " />
+                <UpdateSalatTime />
               </>
             </PrivateRoute>
           }
